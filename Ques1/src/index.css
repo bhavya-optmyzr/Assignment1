@@ -9,9 +9,9 @@ body {
   font-family: 'Quicksand', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("../assets/weather1.jpg");
-  color: #e1eeeb;
-  min-height: 50vh;
+  background-image: url("../assets/rainy.jpg");
+  color: #ffffff;
+  width: 100vw;
 }
 
 #header {
