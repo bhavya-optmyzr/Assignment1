@@ -10,9 +10,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url("../assets/rainy.jpg");
+  background-size:cover;
   color: #ffffff;
   width: 100vw;
 }
+
+.card {
+  background-color: rgba(0, 0, 0, 0.61);
+    
+backdrop-filter: blur(5px);
+  padding: 15px;
+  width: 30%;
+  color:white;
+  }
 
 #header {
   text-align: center;

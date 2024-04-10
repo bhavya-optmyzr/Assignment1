@@ -13,7 +13,7 @@ var MyCollection = Backbone.Collection.extend({
 });
 
 var MyView = Backbone.View.extend({
-  el: "#root",
+  el: "#api",
   initialize: function () {
     this.render();
   },
