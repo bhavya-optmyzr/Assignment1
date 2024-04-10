@@ -1,14 +1,23 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import DayData from "./DayData";
 
-function CardStructure() {
+function CardStructure({ city , weatherMain}) {
   return (
     <Card>
-      <Card.Header as="h5">Featured</Card.Header>
+      <Card.Header as="h5">{city}</Card.Header>
       <Card.Body>
-        <Card.Title>Special title treatment</Card.Title>
+        <Card.Title>Mainly : {weatherMain}</Card.Title>
         <Card.Text>
-          With supporting text below as a natural lead-in to additional content.
+          <div id="weather-data">
+            <DayData/>
+            <DayData/>
+            <DayData/>
+            <DayData/>
+            <DayData/>
+            <DayData/>
+            <DayData/>
+          </div>
         </Card.Text>
         <Button variant="primary">Go somewhere</Button>
       </Card.Body>

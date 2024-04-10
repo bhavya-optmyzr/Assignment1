@@ -10,19 +10,30 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url("../assets/rainy.jpg");
-  background-size:cover;
+  background-size: cover;
   color: #ffffff;
   width: 100vw;
 }
 
 .card {
   background-color: rgba(0, 0, 0, 0.61);
-    
-backdrop-filter: blur(5px);
+
+  backdrop-filter: blur(5px);
   padding: 15px;
-  width: 30%;
-  color:white;
-  }
+  width: 35%;
+  color: white;
+}
+
+card .weather-data
+{
+  display: flex;
+  flex-direction: column;
+}
+
+div .cards {
+  display: flex;
+  flex-direction: row;
+}
 
 #header {
   text-align: center;
@@ -97,3 +108,6 @@ backdrop-filter: blur(5px);
 .center {
   text-align: center;
 }
+
+
+
