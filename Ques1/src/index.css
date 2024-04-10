@@ -16,21 +16,30 @@ body {
 }
 
 #cards{
+  align-content: space-evenly;
+  justify-content: space-evenly;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto;
 }
 
 .card {
   background-color: rgba(0, 0, 0, 0.61);
-  
+  margin-bottom: 3rem;
   backdrop-filter: blur(5px);
   padding: 15px;
-  width: 50%;
+  width: 100%;
   color: white;
 }
 
-card .weather-data
+.cardBody #buttons
 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card .weather-data
+{
+  
   display: flex;
   flex-direction: column;
 }
@@ -41,7 +50,7 @@ div .cards {
 }
 
 
-Card #buttons
+card #buttons
 {
   background-color: #2b996d;
   width:100%;

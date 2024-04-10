@@ -6,6 +6,7 @@ import { Context } from "./Api";
 export const thisCity = "London,uk";
 
 export default function App() {
+
   const {city}=useContext(Context);
   const {weatherMain}=useContext(Context);
   const [input, setInput] = useState("");
@@ -20,12 +21,12 @@ export default function App() {
  
   return (
     <>
+       {/* <h1>Weather App</h1> */}
+
       <div id="header">
         <input value={input} required  onChange = {(event) => {setInput(event.target.value)}}/>
-        <Button variant="primary" onClick={()=>handleClick(input)}>Add Location</Button>
+        <Button variant="success" onClick={()=>handleClick(input)}>Add Location</Button>
       </div>
-
-      <h1>Weather App</h1>
       
       <div id="cards">
         {cards.map((data, index) => {
