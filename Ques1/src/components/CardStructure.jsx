@@ -5,11 +5,8 @@ import {useState} from 'react';
 
 function CardStructure({ city , weatherMain , onClick}) {
 
-  const [input, setInput] = useState("");
-
   return (
     <Card>
-      <input value={input} required onChange = {(event) => {setInput(event.target.value)}}/>
       <Card.Header as="h5">{city}</Card.Header>
       <Card.Body>
         <Card.Title>Mainly : {weatherMain}</Card.Title>
@@ -24,7 +21,11 @@ function CardStructure({ city , weatherMain , onClick}) {
             <DayData/>
           </div>
         </Card.Text>
-        <Button variant="primary" onClick={()=>onClick(input)}>Add Location</Button>
+        {/* <Button variant="primary" onClick={()=>onClick(input)}>Add Location</Button> */}
+        <div id="buttons">
+          <Button variant="primary" onClick={()=>onClick(input)}>Update</Button>
+          <Button variant="primary" onClick={()=>onClick(input)}>Delete</Button>
+        </div>
       </Card.Body>
     </Card>
   );
