@@ -15,6 +15,12 @@ body {
   width: 100vw;
 }
 
+.cardBody .clouds
+{
+  background-image: url("../assets/weather1.jpg");
+  background-size:contain;
+}
+
 #cards{
   align-content: space-evenly;
   justify-content: space-evenly;
@@ -139,3 +145,30 @@ card #buttons
 
 
 
+input {
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+  background-color: black;
+  backdrop-filter: blur(2px);
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #fffdfd;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Example styling for placeholder text */
+input::placeholder {
+  color: #999;
+}
+
+/* Example styling for hover effect */
+input:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
