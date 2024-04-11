@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 15px;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("../assets/rainy.jpg");
+  background-size: cover;
+  color: #ffffff;
+  width: 100vw;
+}
+
+.cardBody .clouds
+{
+  background-image: url("../assets/weather1.jpg");
+  background-size:contain;
+}
+
+#cards{
+  align-content: space-evenly;
+  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.61);
+  margin-bottom: 3rem;
+  backdrop-filter: blur(5px);
+  padding: 15px;
+  width: 100%;
+  color: white;
+}
+
+.cardBody #buttons
+{
+  display: flex;
+  justify-content: space-around;
+}
+
+.card .weather-data
+{
+  
+  display: flex;
+  flex-direction: column;
+}
+
+div .cards {
+  display: flex;
+  flex-direction: row;
+}
+
+
+card #buttons
+{
+  background-color: #2b996d;
+  width:100%;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+#header {
+  text-align: center;
+  margin: 3rem auto;
+}
+
+#header input{
+  margin-right:1rem;
+}
+
+
+#header img {
+  width: 5rem;
+  height: 5rem;
+  object-fit: contain;
+  background-color: transparent;
+}
+
+#header h1 {
+  font-size: 1.5rem;
+}
+
+#user-input {
+  padding: 1rem;
+  max-width: 30rem;
+  margin: 2rem auto;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #307e6c, #2b996d);
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1.5rem;
+}
+
+#user-input label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 0.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#user-input input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #76c0ae;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  color: #c2e9e0;
+  font-size: 1rem;
+}
+
+#result {
+  max-width: 50rem;
+  margin: 2rem auto;
+  padding: 1rem;
+  table-layout: fixed;
+  border-spacing: 1rem;
+  text-align: right;
+}
+
+#result thead {
+  font-size: 0.7rem;
+  color: #83e6c0;
+}
+
+#result tbody {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 0.85rem;
+  color: #c2e9e0;
+}
+
+.center {
+  text-align: center;
+}
+
+
+
+input {
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+  background-color: black;
+  backdrop-filter: blur(2px);
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #fffdfd;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Example styling for placeholder text */
+input::placeholder {
+  color: #999;
+}
+
+/* Example styling for hover effect */
+input:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}

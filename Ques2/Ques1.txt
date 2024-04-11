@@ -1,0 +1,4 @@
+1. Use https://openweathermap.org/api (For this assignment you can create free account)
+Create a web page to show temperature info in units selected by the user for a list of locations.
+At any point of time users can add a new location, delete the existing location or even update the existing location data. 
+Note: For this assignment to render your data, use backbone.js. For writing js code coffee-script is recommended.
