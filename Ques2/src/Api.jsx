@@ -3,11 +3,18 @@ import { thisCity } from "./App";
 
 var MyModel = Backbone.Model.extend(); // Define a model (optional)
 
-export const Context = createContext({ city: "", weatherMain: "" });
+export const Context = createContext({
+  city: "",
+  weatherMain: "",
+  temp: 0,
+  feelsLike: 0,
+});
 
 export default function Api({ children }) {
   const [city, setCity] = useState("");
   const [weatherMain, setWeatherMain] = useState("");
+  const [temp, setTemp] = useState(0);
+  const [feelsLike, setFeelsLike] = useState(0);
 
   var MyCollection = Backbone.Collection.extend({
     model: MyModel,
@@ -50,7 +57,10 @@ export default function Api({ children }) {
               console.log(response.name);
               setCity(response.name);
               // console.log(response.weather[0].main);
-              setWeatherMain(response.weather[0].main);
+              setWeatherMain(response.weather[0].description);
+              setFeelsLike((response.main.feels_like - 273).toFixed(2));
+              // console.log(response.main.temp - 273);
+              setTemp((response.main.temp - 273).toFixed(2));
 
               // console.log(response);
               // console.log(weatherMain);
@@ -76,7 +86,7 @@ export default function Api({ children }) {
   var myView = new MyView();
   // console.log(city);
   return (
-    <Context.Provider value={{ city, weatherMain }}>
+    <Context.Provider value={{ city, weatherMain, temp, feelsLike }}>
       {children}
     </Context.Provider>
   );

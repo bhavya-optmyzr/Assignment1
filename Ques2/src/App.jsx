@@ -8,6 +8,9 @@ export const thisCity = "London,uk";
 export default function App() {
   const { city } = useContext(Context);
   const { weatherMain } = useContext(Context);
+  const { temp } = useContext(Context);
+  const { feelsLike } = useContext(Context);
+
   const [input, setInput] = useState("");
   const [id, setId] = useState([]);
 
@@ -19,6 +22,7 @@ export default function App() {
       return [...prev, { id: id, city: input }];
     });
   }
+
   function handleDelete(identifier) {
     setCards((prev) => prev.filter((data) => data.id !== identifier));
   }
@@ -47,6 +51,8 @@ export default function App() {
               city={data.city}
               identifier={data.id}
               weatherMain={weatherMain}
+              temperature={temp}
+              feelLike={feelsLike}
               onClick={handleClick}
               onDelete={handleDelete}
             />

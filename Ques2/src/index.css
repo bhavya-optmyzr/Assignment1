@@ -15,11 +15,7 @@ body {
   width: 100vw;
 }
 
-.cardBody .clouds
-{
-  background-image: url("../assets/weather1.jpg");
-  background-size:contain;
-}
+
 
 #cards{
   align-content: space-evenly;
