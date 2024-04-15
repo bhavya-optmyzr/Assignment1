@@ -1,3 +1,18 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 15px;
+    font-family: 'Quicksand', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image: url("./assets/weather.jpg");
+    background-size: cover;
+    color: #ffffff;
+    width: 100vw;
+  }
+
 #cardsContainer {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
