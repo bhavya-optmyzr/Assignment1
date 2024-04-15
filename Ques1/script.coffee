@@ -1,79 +1,117 @@
-# Model for location
-class Location extends Backbone.Model
-  defaults:
-    name: ""
-    temperature: 0
-    unit: "Celsius"
+MyModel = Backbone.Model.extend()
 
-# Collection of locations
-class LocationsCollection extends Backbone.Collection
-  model: Location
+MyCollection = Backbone.Collection.extend
+  model: MyModel
+  initialize: (options) ->
+    @latitude = options.latitude
+    @longitude = options.longitude
+  url: ->
+    "https://api.openweathermap.org/data/2.5/weather?q=Delhi,in&APPID=cddbf0b42be47fe6061841ce93bf9ab6"
 
-# View for displaying temperature info
-class TemperatureView extends Backbone.View
-  initialize: ->
-    console.log("TemperatureView initialized")
-    @collection = new LocationsCollection
-    @render()
-    @listenTo(@collection, "add", @fetchTemperature)
-    @listenTo(@collection, "remove", @render)
-    @listenTo(@collection, "change", @render)
+# Function to create a new card element with weather information
+createCard = (location, temperature, description) ->
+  cardDiv = document.createElement("div")
+  cardDiv.className = "card"
+  cardDiv.style = "width: 18rem; margin-bottom: 10px;"
 
-fetchTemperature: (location) ->
-  console.log("Location type:", typeof location)
-  if location instanceof Location
-    url = "https://api.openweathermap.org/data/2.5/weather?q=#{location.get('name')}&APPID=cddbf0b42be47fe6061841ce93bf9ab6"
-    $.getJSON(url, (data) =>
-      if data.main?
-        temperature = data.main.temp
-        # Convert temperature from Kelvin to Celsius
-        temperature = temperature - 273.15
-        location.set('temperature', temperature.toFixed(2))
-      else
-        console.error("Error: No temperature data returned for location", location.get('name'))
-      # After setting temperature, re-render the view
-      @render()
+  cardBody = document.createElement("div")
+  cardBody.className = "card-body"
+
+  title = document.createElement("h5")
+  title.className = "card-title"
+  title.innerText = "Location: "
+
+  locationInput = document.createElement("input")
+  locationInput.className = "form-control mb-2"
+  locationInput.value = location
+
+  temp = document.createElement("p")
+  temp.className = "card-text"
+  temp.innerText = "Temperature: #{temperature} °C"
+
+  desc = document.createElement("p")
+  desc.className = "card-text"
+  desc.innerText = "Description: #{description}"
+
+  buttonGroup = document.createElement("div")
+  buttonGroup.className = "btn-group"
+
+  updateBtn = document.createElement("button")
+  updateBtn.className = "btn btn-primary mr-2"
+  updateBtn.innerText = "Update"
+  updateBtn.onclick = ->
+    newLocation = locationInput.value
+    if !newLocation
+      alert("Please enter a location")
+      return
+    fetchWeatherAndUpdateCard newLocation, temperature, description, cardDiv
+
+  deleteBtn = document.createElement("button")
+  deleteBtn.className = "btn btn-danger"
+  deleteBtn.innerText = "Delete"
+  deleteBtn.onclick = ->
+    console.log("Delete button clicked for location: #{location}")
+    cardDiv.remove()
+
+  buttonGroup.appendChild(updateBtn)
+  buttonGroup.appendChild(deleteBtn)
+
+  cardBody.appendChild(title)
+  cardBody.appendChild(locationInput)
+  cardBody.appendChild(temp)
+  cardBody.appendChild(desc)
+  cardBody.appendChild(buttonGroup)
+
+  cardDiv.appendChild(cardBody)
+
+  return cardDiv
+
+# Function to fetch weather data for a location and update the card
+fetchWeatherAndUpdateCard = (location, temperature, description, cardDiv) ->
+  url = "https://api.openweathermap.org/data/2.5/weather?q=#{location}&APPID=cddbf0b42be47fe6061841ce93bf9ab6"
+
+  fetch(url)
+    .then((response) -> response.json())
+    .then((data) ->
+      cardTitle = cardDiv.querySelector(".card-title")
+      tempText = cardDiv.querySelector(".card-text:nth-child(3)")
+      descText = cardDiv.querySelector(".card-text:nth-child(4)")
+
+      cardTitle.innerText = "Location: #{data.name}"
+      tempText.innerText = "Temperature: #{(data.main.temp - 273).toFixed(2)} °C"
+      descText.innerText = "Description: #{data.weather[0].description}"
     )
-  else
-    console.error("Error: Invalid location model passed to fetchTemperature")
+    .catch((error) ->
+      console.error("Error fetching data:", error)
+      alert("Error fetching data. See console for details.")
+    )
 
-  events:
-    "click .delete": "deleteLocation"
-
-  deleteLocation: (event) ->
-    locationName = $(event.target).siblings("p").first().text().split(":")[1].trim()
-    location = @collection.findWhere(name: locationName)
-    @collection.remove(location)
-
-# View for adding new location
-class AddLocationView extends Backbone.View
+MyView = Backbone.View.extend
+  el: "#api"
   initialize: ->
-    @collection = new LocationsCollection() # Instantiate the collection
     @render()
-
   render: ->
-    $form = $('<form>')
-    $form.append("<input type='text' id='name' placeholder='Location Name'>")
-    $form.append("<button id='add'>Add Location</button>")
-    @$el.append($form)
+    @$el.html("Loading...")
+    @fetchData()
+  fetchData: ->
+    location = document.getElementById("locationInput").value
+    if !location
+      alert("Please enter a location")
+      return
+    url = "https://api.openweathermap.org/data/2.5/weather?q=#{location}&APPID=cddbf0b42be47fe6061841ce93bf9ab6"
 
-  events:
-    "click #add": "addLocation"
+    fetch(url)
+      .then((response) -> response.json())
+      .then((data) ->
+        newCard = createCard(data.name, (data.main.temp - 273).toFixed(2), data.weather[0].description)
+        container = document.getElementById("cardsContainer")
+        container.appendChild(newCard)
+      )
+      .catch((error) ->
+        console.error("Error fetching data:", error)
+        @$el.html("Error fetching data. See console for details.")
+      )
 
-  addLocation: (event) ->
-    name = $('#name').val()
-    location = new Location(name: name) # Instantiate the Location model
-    if name
-      @collection.add(location) # Add the Location model to the collection
-    else
-      console.error("Error: Please provide a location name")
+myView = new MyView()
 
-# Main App View
-class AppView extends Backbone.View
-  initialize: ->
-    console.log("AppView initialized")
-    @render()
-
-  render: ->
-    @temperatureView = new TemperatureView(el: $("#temperature-info"))
-    @addLocationView = new AddLocationView(el: $("#add-location"))
+document.getElementById("fetchWeatherBtn").addEventListener("click", -> myView.fetchData())
