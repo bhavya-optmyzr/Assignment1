@@ -12,6 +12,7 @@ var MyCollection = Backbone.Collection.extend({
 });
 
 // Function to create a new card element with weather information
+// Function to create a new card element with weather information
 function createCard(location, temperature, description) {
   var cardDiv = document.createElement("div");
   cardDiv.className = "card";
@@ -32,14 +33,39 @@ function createCard(location, temperature, description) {
   desc.className = "card-text";
   desc.innerText = "Description: " + description;
 
+  var buttonGroup = document.createElement("div");
+  buttonGroup.className = "btn-group";
+
+  var updateBtn = document.createElement("button");
+  updateBtn.className = "btn btn-primary mr-4";
+  updateBtn.innerText = "Update";
+  updateBtn.onclick = function() {
+    // Add your update functionality here
+    console.log("Update button clicked for location:", location);
+  };
+
+  var deleteBtn = document.createElement("button");
+  deleteBtn.className = "btn btn-danger";
+  deleteBtn.innerText = "Delete";
+  deleteBtn.onclick = function() {
+    // Add your delete functionality here
+    console.log("Delete button clicked for location:", location);
+    cardDiv.remove(); // Remove the card from the DOM
+  };
+
+  buttonGroup.appendChild(updateBtn);
+  buttonGroup.appendChild(deleteBtn);
+
   cardBody.appendChild(title);
   cardBody.appendChild(temp);
   cardBody.appendChild(desc);
+  cardBody.appendChild(buttonGroup);
 
   cardDiv.appendChild(cardBody);
 
   return cardDiv;
 }
+
 
 var MyView = Backbone.View.extend({
   el: "#api",

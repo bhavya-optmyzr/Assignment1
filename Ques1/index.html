@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Weather App</title>
 </head>
 
 <body>
-    <div id="api">
-        Loading...
-    </div>
 
     <!-- Input field and button for entering location -->
     <div class="input-group mb-3 mt-3">
@@ -21,17 +19,6 @@
             <button class="btn btn-primary" type="button" id="fetchWeatherBtn">Fetch Weather</button>
         </div>
     </div>
-
-    <!-- <div class="card" style="width: 18rem;" id="locationCard">
-        <div class="card-body">
-            <h5 class="card-title" id="locationName">Location Name</h5>
-            <h6 class="card-subtitle mb-2 text-muted" id="temperature">Temperature: </h6>
-            <p class="card-text" id="description">Additional information about the location.</p> -->
-            <!-- You can add more content here if needed -->
-            <!-- <button class="btn btn-primary" id="updateBtn">Update</button>
-            <button class="btn btn-danger" id="deleteBtn">Delete</button>
-        </div>
-    </div> -->
 
     <div id="cardsContainer"></div>
 
