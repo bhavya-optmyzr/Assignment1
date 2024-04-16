@@ -4,16 +4,16 @@
 
   MyModel = Backbone.Model.extend();
 
-  MyCollection = Backbone.Collection.extend({
-    model: MyModel,
-    initialize: function(options) {
-      this.latitude = options.latitude;
-      return this.longitude = options.longitude;
-    },
-    url: function() {
-      return "https://api.openweathermap.org/data/2.5/weather?q=Delhi,in&APPID=cddbf0b42be47fe6061841ce93bf9ab6";
-    }
-  });
+  // MyCollection = Backbone.Collection.extend({
+  //   model: MyModel,
+  //   initialize: function(options) {
+  //     this.latitude = options.latitude;
+  //     return this.longitude = options.longitude;
+  //   },
+  //   url: function() {
+  //     return "https://api.openweathermap.org/data/2.5/weather?q=Delhi,in&APPID=cddbf0b42be47fe6061841ce93bf9ab6";
+  //   }
+  // });
 
   // Function to create a new card element with weather information
   createCard = function(location, temperature, description) {
@@ -54,6 +54,8 @@
     deleteBtn.innerText = "Delete";
     deleteBtn.onclick = function() {
       console.log(`Delete button clicked for location: ${location}`);
+      console.log(cardDiv);
+      console.log(MyCollection)
       return cardDiv.remove();
     };
     buttonGroup.appendChild(updateBtn);

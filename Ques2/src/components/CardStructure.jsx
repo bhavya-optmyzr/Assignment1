@@ -1,40 +1,65 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import DayData from "./DayData";
-import { useState } from "react";
+import { fetchData } from "../Api";
+import { useState, useEffect } from "react";
 
-function CardStructure({
-  city,
-  weatherMain,
-  onClick,
-  onDelete,
-  identifier,
-  temperature,
-  feelLike,
-}) {
-  function handleDelete() {}
+function CardStructure({ city, onClick, onDelete, identifier }) {
+  const [label, setLabel] = useState(true);
+  const [inputCity, setInputCity] = useState("");
+  const [cityName, setCityName] = useState(city);
+  const [data, setData] = useState({
+    temp: "",
+    city: "",
+    feelsLike: "",
+    desc: "",
+  });
+
+  useEffect(() => {
+    fetchData(cityName, setData);
+  }, [cityName]);
+
+  function onClickEdit() {
+    setLabel(false);
+  }
+
+  function onClickSave() {
+    setLabel(true);
+    setCityName(inputCity);
+  }
 
   return (
     <Card className="cardBody">
-      <Card.Header as="h5">{city}</Card.Header>
-      <hr></hr>
-      <Card.Body className={weatherMain === "Clouds" ? "clouds" : "rainy"}>
-        <Card.Title>Temperature : {temperature} °C</Card.Title>
+      {label ? (
+        <div class="label-area">
+          <Card.Header as="h5">{data.city}</Card.Header>
+          <Button variant="primary" onClick={onClickEdit}>
+            Edit
+          </Button>
+        </div>
+      ) : (
+        <div class="label-area">
+          <input
+            value={inputCity}
+            required
+            onChange={(event) => {
+              setInputCity(event.target.value);
+            }}
+          />
+          <Button variant="primary" onClick={onClickSave}>
+            Save
+          </Button>
+        </div>
+      )}
+
+      <Card.Body>
+        <Card.Title>Temperature : {data.temp} °C</Card.Title>
         <Card.Text>
           <div id="weather-data">
-            Description : {weatherMain}
+            Description : {data.desc}
             <br />
-            Feels Like : {feelLike} °C
-            {/* <DayData />
-            <DayData />
-            <DayData />
-            <DayData />
-            <DayData />
-            <DayData />
-            <DayData /> */}
+            Feels Like : {data.feelsLike} °C
           </div>
         </Card.Text>
-        {/* <Button variant="primary" onClick={()=>onClick(input)}>Add Location</Button> */}
         <div id="buttons">
           <Button variant="warning" onClick={() => onClick(input)}>
             Update

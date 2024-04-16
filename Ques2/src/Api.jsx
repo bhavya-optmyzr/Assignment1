@@ -1,93 +1,22 @@
-import { createContext, useState } from "react";
-import { thisCity } from "./App";
+const API_ID = "cddbf0b42be47fe6061841ce93bf9ab6";
 
-var MyModel = Backbone.Model.extend(); // Define a model (optional)
+export async function fetchData(cardCity, setData) {
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${cardCity}&APPID=${API_ID}`;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw "error";
+    }
 
-export const Context = createContext({
-  city: "",
-  weatherMain: "",
-  temp: 0,
-  feelsLike: 0,
-});
-
-export default function Api({ children }) {
-  const [city, setCity] = useState("");
-  const [weatherMain, setWeatherMain] = useState("");
-  const [temp, setTemp] = useState(0);
-  const [feelsLike, setFeelsLike] = useState(0);
-
-  var MyCollection = Backbone.Collection.extend({
-    model: MyModel,
-    initialize: function (options) {
-      this.latitude = options.latitude;
-      this.longitude = options.longitude;
-    },
-    url: function () {
-      console.log("calling api");
-      const response = `https://api.openweathermap.org/data/2.5/weather?q=${thisCity}&APPID=cddbf0b42be47fe6061841ce93bf9ab6`;
-      console.log("api called");
-      return response;
-      // return 'https://api.openweathermap.org/data/3.0/onecall?lat=' + this.latitude + '&lon=' + this.longitude + '&exclude=daily&appid=cddbf0b42be47fe6061841ce93bf9ab6';
-    },
-  });
-
-  var MyView = Backbone.View.extend({
-    el: "#api",
-    initialize: function () {
-      this.render();
-    },
-    render: function () {
-      this.$el.html("Loading...");
-      this.fetchData();
-    },
-    fetchData: function () {
-      var self = this;
-      navigator.geolocation.getCurrentPosition(
-        function (position) {
-          var latitude = position.coords.latitude;
-          var longitude = position.coords.longitude;
-
-          var myData = new MyCollection({
-            latitude: latitude,
-            longitude: longitude,
-          });
-
-          myData.fetch({
-            success: function (collection, response) {
-              console.log(response.name);
-              setCity(response.name);
-              // console.log(response.weather[0].main);
-              setWeatherMain(response.weather[0].description);
-              setFeelsLike((response.main.feels_like - 273).toFixed(2));
-              // console.log(response.main.temp - 273);
-              setTemp((response.main.temp - 273).toFixed(2));
-
-              // console.log(response);
-              // console.log(weatherMain);
-              // // console.log(city);
-              self.$el.html(
-                "Data fetched successfully: " + JSON.stringify(response)
-              );
-            },
-            error: function (collection, response) {
-              self.$el.html("Error fetching data: " + JSON.stringify(response));
-            },
-          });
-        },
-        function (error) {
-          self.$el.html(
-            "Error getting user location: " + JSON.stringify(error)
-          );
-        }
-      );
-    },
-  });
-
-  var myView = new MyView();
-  // console.log(city);
-  return (
-    <Context.Provider value={{ city, weatherMain, temp, feelsLike }}>
-      {children}
-    </Context.Provider>
-  );
+    const data = await response.json();
+    console.log(data);
+    setData({
+      temp: (data.main.temp - 273.15).toFixed(2),
+      city: data.name,
+      feelsLike: (data.main.feels_like - 273.15).toFixed(2),
+      desc: data.weather[0].description,
+    });
+  } catch (err) {
+    console.log(err);
+  }
 }

@@ -1,22 +1,14 @@
 import Button from "react-bootstrap/Button";
 import CardStructure from "./components/CardStructure";
-import { useContext, useState } from "react";
-import { Context } from "./Api";
-
-export const thisCity = "London,uk";
+import { useState } from "react";
 
 export default function App() {
-  const { city } = useContext(Context);
-  const { weatherMain } = useContext(Context);
-  const { temp } = useContext(Context);
-  const { feelsLike } = useContext(Context);
-
+  const [city, setCity] = useState("London,uk");
   const [input, setInput] = useState("");
-  const [id, setId] = useState([]);
-
-  const [cards, setCards] = useState([{ id: null, city: null }]);
+  const [cards, setCards] = useState([]);
 
   function handleClick(input) {
+    setCity(input);
     const id = Math.random();
     setCards((prev) => {
       return [...prev, { id: id, city: input }];
@@ -50,9 +42,6 @@ export default function App() {
               key={index}
               city={data.city}
               identifier={data.id}
-              weatherMain={weatherMain}
-              temperature={temp}
-              feelLike={feelsLike}
               onClick={handleClick}
               onDelete={handleDelete}
             />
