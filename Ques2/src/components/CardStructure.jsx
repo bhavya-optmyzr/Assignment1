@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import { fetchData } from "../Api";
 import { useState, useEffect } from "react";
 
-function CardStructure({ city, onClick, onDelete, identifier }) {
+function CardStructure({ city, onDelete, identifier }) {
   const [label, setLabel] = useState(true);
   const [inputCity, setInputCity] = useState("");
   const [cityName, setCityName] = useState(city);
@@ -61,9 +61,6 @@ function CardStructure({ city, onClick, onDelete, identifier }) {
           </div>
         </Card.Text>
         <div id="buttons">
-          <Button variant="warning" onClick={() => onClick(input)}>
-            Update
-          </Button>
           <Button variant="danger" onClick={() => onDelete(identifier)}>
             Delete
           </Button>

@@ -5,7 +5,7 @@ export async function fetchData(cardCity, setData) {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw "error";
+      throw "This location is not defined...Try another...";
     }
 
     const data = await response.json();
@@ -17,6 +17,6 @@ export async function fetchData(cardCity, setData) {
       desc: data.weather[0].description,
     });
   } catch (err) {
-    console.log(err);
+    alert(err);
   }
 }

@@ -7,9 +7,9 @@ export default function App() {
   const [input, setInput] = useState("");
   const [cards, setCards] = useState([]);
 
-  function handleClick(input) {
+  function handleClick() {
     setCity(input);
-    const id = Math.random();
+    const id = cards.length + 1;
     setCards((prev) => {
       return [...prev, { id: id, city: input }];
     });
@@ -30,7 +30,7 @@ export default function App() {
             setInput(event.target.value);
           }}
         />
-        <Button variant="success" onClick={() => handleClick(input)}>
+        <Button variant="success" onClick={() => handleClick()}>
           Add Location
         </Button>
       </div>
@@ -42,7 +42,6 @@ export default function App() {
               key={index}
               city={data.city}
               identifier={data.id}
-              onClick={handleClick}
               onDelete={handleDelete}
             />
           );
