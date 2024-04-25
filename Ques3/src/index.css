@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 15px;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("../assets/weather.jpg");
+  background-size: cover;
+  color: #ffffff;
+  width: 100vw;
+}
+
+
+
+#cards{
+  align-content: space-evenly;
+  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.card {
+  background-color: rgba(250, 248, 248, 0.61);
+  margin-bottom: 3rem;
+  backdrop-filter: blur(2px);
+  padding: 15px;
+  width: 100%;
+  color: rgb(0, 0, 0);
+}
+
+.cardBody #buttons
+{
+  display: flex;
+  justify-content: space-around;
+}
+
+.card .weather-data
+{
+  
+  display: flex;
+  flex-direction: column;
+}
+
+div .cards {
+  display: flex;
+  flex-direction: row;
+}
+
+
+card #buttons
+{
+  background-color: #2b996d;
+  width:100%;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+#header {
+  text-align: center;
+  margin: 3rem auto;
+}
+
+#header input{
+  margin-right:1rem;
+}
+
+#header h1 {
+  font-size: 1.5rem;
+}
+
+
+input {
+  margin-right: 2.5rem;
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(235, 235, 235);
+  backdrop-filter: blur(2px);
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #000000;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+input::placeholder {
+  color: #999;
+}
+
+input:hover {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.label-area{
+  display:flex;
+  justify-content: space-around;
+ 
+}

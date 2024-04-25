@@ -1,0 +1,300 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\server\\code\\optmyzr\\code\\backend\\OptmyzrProcessorService\\assignment5\\Assignment5.csproj": {}
+  },
+  "projects": {
+    "C:\\server\\code\\optmyzr\\code\\backend\\OptmyzrProcessorService\\assignment5\\Assignment5.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\server\\code\\optmyzr\\code\\backend\\OptmyzrProcessorService\\assignment5\\Assignment5.csproj",
+        "projectName": "Assignment5",
+        "projectPath": "C:\\server\\code\\optmyzr\\code\\backend\\OptmyzrProcessorService\\assignment5\\Assignment5.csproj",
+        "packagesPath": "C:\\Users\\bhavy\\.nuget\\packages\\",
+        "outputPath": "C:\\server\\code\\optmyzr\\code\\backend\\OptmyzrProcessorService\\assignment5\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\bhavy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\server\\code\\optmyzr\\code\\backend\\OptmyzrProcessorService\\OptmyzrHelpers\\OptmyzrHelpers.csproj": {
+                "projectPath": "C:\\server\\code\\optmyzr\\code\\backend\\OptmyzrProcessorService\\OptmyzrHelpers\\OptmyzrHelpers.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\server\\code\\optmyzr\\code\\backend\\OptmyzrProcessorService\\OptmyzrHelpers\\OptmyzrHelpers.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\server\\code\\optmyzr\\code\\backend\\OptmyzrProcessorService\\OptmyzrHelpers\\OptmyzrHelpers.csproj",
+        "projectName": "OptmyzrHelpers",
+        "projectPath": "C:\\server\\code\\optmyzr\\code\\backend\\OptmyzrProcessorService\\OptmyzrHelpers\\OptmyzrHelpers.csproj",
+        "packagesPath": "C:\\Users\\bhavy\\.nuget\\packages\\",
+        "outputPath": "C:\\server\\code\\optmyzr\\code\\backend\\OptmyzrProcessorService\\OptmyzrHelpers\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\bhavy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AWSSDK.DynamoDBv2": {
+              "target": "Package",
+              "version": "[3.7.3.51, )"
+            },
+            "AWSSDK.S3": {
+              "target": "Package",
+              "version": "[3.7.9.19, )"
+            },
+            "AWSSDK.SimpleDB": {
+              "target": "Package",
+              "version": "[3.7.0.175, )"
+            },
+            "BouncyCastle.NetCore": {
+              "target": "Package",
+              "version": "[1.9.0, )"
+            },
+            "CoreCLR-NCalc": {
+              "target": "Package",
+              "version": "[2.2.110, )"
+            },
+            "DotNetZip": {
+              "target": "Package",
+              "version": "[1.16.0, )"
+            },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[4.5.3.3, )"
+            },
+            "FileCache": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            },
+            "Google.Ads.GoogleAds": {
+              "target": "Package",
+              "version": "[17.1.0, )"
+            },
+            "Google.Apis.Docs.v1": {
+              "target": "Package",
+              "version": "[1.60.0.2979, )"
+            },
+            "Google.Apis.Doubleclicksearch.v2": {
+              "target": "Package",
+              "version": "[1.57.0.2666, )"
+            },
+            "Google.Apis.Drive.v3": {
+              "target": "Package",
+              "version": "[1.57.0.2789, )"
+            },
+            "Google.Apis.Sheets.v4": {
+              "target": "Package",
+              "version": "[1.57.0.2727, )"
+            },
+            "Google.Apis.ShoppingContent.v2_1": {
+              "target": "Package",
+              "version": "[1.60.0.2975, )"
+            },
+            "GroBuf": {
+              "target": "Package",
+              "version": "[1.7.3, )"
+            },
+            "Haukcode.BinaryRage": {
+              "target": "Package",
+              "version": "[1.5.0, )"
+            },
+            "Html2Markdown": {
+              "target": "Package",
+              "version": "[5.1.0.703, )"
+            },
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.49, )"
+            },
+            "JWT": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
+            "Meta.Numerics": {
+              "target": "Package",
+              "version": "[4.1.4, )"
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.BingAds.SDK": {
+              "target": "Package",
+              "version": "[13.0.17, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.23.1, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.29, )"
+            },
+            "NewRelic.Agent.Api": {
+              "target": "Package",
+              "version": "[10.13.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "ResXResourceReader.NetStandard": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "ServiceStack.Redis": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            },
+            "System.Data.SQLite": {
+              "target": "Package",
+              "version": "[1.0.115.5, )"
+            },
+            "System.IO.Compression": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Runtime.Caching": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.ServiceModel.Http": {
+              "target": "Package",
+              "version": "[4.10.2, )"
+            },
+            "System.ServiceModel.Security": {
+              "target": "Package",
+              "version": "[4.10.2, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "TimeZoneConverter": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "ncrontab": {
+              "target": "Package",
+              "version": "[3.3.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
