@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Campaign Data</title>
+</head>
+
+<body>
+    <div class="container">
+        <div id="header">
+            <h1>Campaign Data</h1>
+            <button class="button print-button" id="print" onclick="downloadPdf()">Print</button>
+        </div>
+
+        <table id="campaign-table">
+            <thead>
+                <tr>
+                    <th>Campaign ID</th>
+                    <th>Campaign Name</th>
+                    <th>Status</th>
+                    <th>Bidding Strategy</th>
+                    <th>Type</th>
+                    <th>Serving Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamically adding data here using "api.js" -->
+            </tbody>
+        </table>
+
+        <script src="./script.js"></script>
+        <script src="./api.js"></script>
+</body>
+
+</html>
